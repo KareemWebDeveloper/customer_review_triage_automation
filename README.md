@@ -31,9 +31,9 @@ An automated AI pipeline that ingests, deduplicates, classifies, and alerts on c
 - **Prompt Injection Defense**: System prompts isolate review text as untrusted data, neutralizing embedded instructions attempting to manipulate output (e.g., `R-1009`).
 
 ## 4. Assumptions
-- Input CSVs follow standard Amazon review headers (`Review ID`, `Brand`, `Product`, `Star Rating`, `Review Text`).
-- Google Sheets links provided are publicly accessible or exportable as CSV.
-- Critical safety concerns require immediate individual alerts, while run summary metrics belong in a final report with the attached CSV.
+- Duplicate Resolution: When multiple rows share the same Review ID, I assumed the first occurrence is authoritative and retained it while skipping subsequent occurrences.
+- Single Classification per Review: When a review mentions multiple issues, I assign one primary category based on the most significant issue, prioritizing safety concerns where applicable.
+- Execution Model: I designed the solution as a command-line batch workflow because the assessment focuses on processing a supplied dataset rather than providing a user interface or continuous monitoring.
 
 ## 5. Scaling to 500 Daily Reviews (Production Roadmap & Cost Breakdown)
 
