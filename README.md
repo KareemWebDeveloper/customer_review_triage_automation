@@ -1,4 +1,4 @@
-Time spent: 128 minutes
+### **Time spent: 128 minutes**
 
 # Pax Distribution — AI Customer Review Triage Automation
 
